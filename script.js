@@ -51,11 +51,11 @@ async function calculateSalary() {
   let brut, result, com;
 
   if (sum === 0 && hours === 0) {
-    brut = 38.5 * 16.10;
+    brut = 38.5 * 16.1;
     result = brut - 0.21 * brut;
     com = 0;
   } else {
-    const y = hours * 16.10;
+    const y = hours * 16.1;
     const z = y * 2;
     const t = sum - z;
     com = t - 0.6 * t;
@@ -285,26 +285,6 @@ async function updateChart() {
     createChart(data.reverse()); // обращаем массив данных перед созданием графика
   }
 }
-// Дата бросания курить
-const quitDate = new Date("2024-08-27T10:00:00");
-
-// Функция для вычисления количества дней
-function calculateDays() {
-  const now = new Date(); // Текущая дата и время
-  const diff = now - quitDate; // Разница в миллисекундах
-
-  // Конвертация разницы в дни
-  const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24)); // Количество дней
-
-  // Выводим данные на страницу
-  document.getElementById("elapsedTime").innerHTML = `
-        <strong><p>${totalDays} Days</p></strong>
-      `;
-}
-
-// Выполняем вычисление при загрузке страницы
-calculateDays();
-
 window.onload = function () {
   fetchResults();
 };
