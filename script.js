@@ -51,11 +51,11 @@ async function calculateSalary() {
   let brut, result, com;
 
   if (sum === 0 && hours === 0) {
-    brut = 38.5 * 15.75;
+    brut = 38.5 * 16.1;
     result = brut - 0.21 * brut;
     com = 0;
   } else {
-    const y = hours * 15.75;
+    const y = hours * 16.1;
     const z = y * 2;
     const t = sum - z;
     com = t - 0.6 * t;
@@ -74,7 +74,7 @@ async function calculateSalary() {
   // Вычисляем часовую зарплату
   let hourlySalary;
   if (sum === 0 && hours === 0) {
-    hourlySalary = 15.75;
+    hourlySalary = 16.1;
   } else {
     hourlySalary = hours !== 0 ? brut / hours : 0;
   }
@@ -93,7 +93,7 @@ async function calculateSalary() {
     hourlySalary,
     additionalResult,
     additionalBrut,
-    additionalNalog
+    additionalNalog,
   );
   await fetchResults();
 
@@ -179,16 +179,16 @@ async function displayResults() {
 
 function createChart(results) {
   const labels = results.map(
-    (result) => `Total: ${result.sum}, Hours: ${result.hours}`
+    (result) => `Total: ${result.sum}, Hours: ${result.hours}`,
   );
   const data = results.map((result) =>
-    result.result ? result.result.toFixed(2) : 0
+    result.result ? result.result.toFixed(2) : 0,
   );
   const ADtotalData = results.map((result) =>
-    result.ADtotal ? result.ADtotal.toFixed(2) : 0
+    result.ADtotal ? result.ADtotal.toFixed(2) : 0,
   );
   const additionalValue = results.map((result) =>
-    result.additionalValue ? result.additionalValue.toFixed(2) : 0
+    result.additionalValue ? result.additionalValue.toFixed(2) : 0,
   );
   const ctx = document.getElementById("myChart").getContext("2d");
   if (typeof myChart === "object" && myChart !== null) {
@@ -286,7 +286,7 @@ async function updateChart() {
   }
 }
 // Дата бросания курить
-const quitDate = new Date('2024-08-27T10:00:00');
+const quitDate = new Date("2024-08-27T10:00:00");
 
 // Функция для вычисления количества дней
 function calculateDays() {
@@ -297,7 +297,7 @@ function calculateDays() {
   const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24)); // Количество дней
 
   // Выводим данные на страницу
-  document.getElementById('elapsedTime').innerHTML = `
+  document.getElementById("elapsedTime").innerHTML = `
         <strong><p>${totalDays} Days</p></strong>
       `;
 }
