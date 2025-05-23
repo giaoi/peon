@@ -74,7 +74,7 @@ async function calculateSalary() {
   // Вычисляем часовую зарплату
   let hourlySalary;
   if (sum === 0 && hours === 0) {
-    hourlySalary = 16.10;
+    hourlySalary = 16.1;
   } else {
     hourlySalary = hours !== 0 ? brut / hours : 0;
   }
